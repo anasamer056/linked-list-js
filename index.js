@@ -5,7 +5,8 @@ const linkedList = new LinkedList();
 linkedList.append(5);
 linkedList.append(6);
 linkedList.append(7);
-linkedList.pop();
-linkedList.pop();
+linkedList.prepend(4);
 
-console.log(linkedList.toString());
+console.log(linkedList.toString())
+console.log(linkedList.insertAt(5.5, 2).toString());
+

@@ -54,6 +54,16 @@ export default class LinkedList {
       }
     }
   }
+  prepend(value) {
+    if (!this.root) {
+      this.root = new Node(value);
+      return;
+    }
+
+    const curr = this.root;
+    const newNode = new Node(value, curr);
+    this.root = newNode;
+  }
 
   pop() {
     if (!this.root) {
@@ -88,6 +98,49 @@ export default class LinkedList {
     }
 
     return curr.value;
+  }
+
+  find(value){
+    if (!this.root) {
+      return null;
+    }
+    let index = 0; 
+
+    let curr = this.root;
+    const len = this.size;
+
+    while (index < len) {
+      let next = curr.nextNode;
+      if (value === curr.value) return index;
+      curr = next;
+      index++;
+    }
+
+    return null;
+  }
+
+  contains(value){
+    if (this.find(value) === null) return false;
+    else return true;
+  }
+
+  insertAt(value, index){
+    if (index >= this.size) {
+      return new RangeError("Index outside range");
+    }
+
+    let curr = this.root;
+    let previous; 
+
+    while (index) {
+      let next = curr.nextNode;
+      previous = curr;
+      curr = next;
+      index--;
+    }
+    const newNode = new Node(value, curr);
+    previous.nextNode = newNode;
+    return this;
   }
 
   toString() {
