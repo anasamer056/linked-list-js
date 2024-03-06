@@ -9,5 +9,5 @@ linkedList.prepend(4);
 
 console.log(linkedList.toString())
 console.log(linkedList.insertAt(5.5, 2).toString());
-console.log(linkedList.removeAt(3).toString());
+console.log(linkedList.clone().prepend(3).toString());
 

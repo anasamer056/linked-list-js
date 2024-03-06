@@ -14,3 +14,4 @@ Singly Linked List implemented with JavaScript
 * `toString()` returns your LinkedList objects as strings in the format: ( value ) -> ( value ) -> ( value ) -> null
 * `insertAt(value, index)` inserts a new node with the provided value at the given index or at the end of the list if index is bigger than list size
 * `removeAt(index)` removes the node at the given index or error message if the list is empty or if the request index is bigger than list size
+* `clone()` returns a deep copy of the list

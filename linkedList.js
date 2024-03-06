@@ -63,6 +63,7 @@ export default class LinkedList {
     const curr = this.root;
     const newNode = new Node(value, curr);
     this.root = newNode;
+    return this;
   }
 
   pop() {
@@ -159,6 +160,25 @@ export default class LinkedList {
     }
     previous.nextNode = curr.nextNode;
     return this;
+  }
+
+  clone(){
+    let newList = new LinkedList();
+
+    if (!this.root) return newList;
+    
+    let curr = this.root;
+
+    while (true) {
+      let next = curr.nextNode;
+      newList.append(curr.value);
+
+      if (!next) {
+        return newList;
+      }
+
+      curr = next;
+    }
   }
 
   toString() {
