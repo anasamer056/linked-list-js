@@ -37,7 +37,7 @@ export default class LinkedList {
   append(value) {
     if (!this.root) {
       this.root = new Node(value);
-      return;
+      return this;
     }
     let curr = this.root;
 
@@ -48,7 +48,7 @@ export default class LinkedList {
         const newNode = new Node(value);
         curr.nextNode = newNode;
         this.#tail = newNode;
-        return;
+        return this;
       } else {
         curr = next;
       }
@@ -57,7 +57,7 @@ export default class LinkedList {
   prepend(value) {
     if (!this.root) {
       this.root = new Node(value);
-      return;
+      return this;
     }
 
     const curr = this.root;
@@ -67,7 +67,7 @@ export default class LinkedList {
 
   pop() {
     if (!this.root) {
-      return;
+      return this;
     }
     let curr = this.root;
     let previous;
@@ -77,7 +77,7 @@ export default class LinkedList {
 
       if (!next) {
         previous.nextNode = null;
-        return;
+        return this;
       }
       previous = curr;
       curr = next;
@@ -140,6 +140,24 @@ export default class LinkedList {
     }
     const newNode = new Node(value, curr);
     previous.nextNode = newNode;
+    return this;
+  }
+
+  removeAt(index) {
+    if (index >= this.size) {
+      return new RangeError("Index outside range");
+    }
+
+    let curr = this.root;
+    let previous; 
+
+    while (index) {
+      let next = curr.nextNode;
+      previous = curr;
+      curr = next;
+      index--;
+    }
+    previous.nextNode = curr.nextNode;
     return this;
   }
 
