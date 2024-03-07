@@ -7,7 +7,6 @@ linkedList.append(6);
 linkedList.append(7);
 linkedList.prepend(4);
 
-console.log(linkedList.toString())
-console.log(linkedList.insertAt(5.5, 2).toString());
-console.log(linkedList.clone().prepend(3).toString());
+console.log(linkedList.at(-1))
+
 

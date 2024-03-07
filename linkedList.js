@@ -86,7 +86,7 @@ export default class LinkedList {
   }
 
   at(index) {
-    if (index >= this.size) {
+    if (index < 0 || index >= this.size) {
       return new RangeError("Index outside range");
     }
 
@@ -126,7 +126,7 @@ export default class LinkedList {
   }
 
   insertAt(value, index){
-    if (index >= this.size) {
+    if (index < 0 || index >= this.size) {
       return new RangeError("Index outside range");
     }
 
@@ -145,7 +145,7 @@ export default class LinkedList {
   }
 
   removeAt(index) {
-    if (index >= this.size) {
+    if (index < 0 || index >= this.size) {
       return new RangeError("Index outside range");
     }
 
